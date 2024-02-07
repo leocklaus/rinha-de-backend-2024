@@ -7,21 +7,21 @@ import jakarta.persistence.Id;
 
 import java.util.Objects;
 
-@Entity
+@Entity(name = "client")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer limit;
+    private Integer creditLimit;
     private Integer initialBalance;
 
     public Client(){
 
     }
 
-    public Client(Long id, Integer limit, Integer initialBalance) {
+    public Client(Long id, Integer creditLimit, Integer initialBalance) {
         this.id = id;
-        this.limit = limit;
+        this.creditLimit = creditLimit;
         this.initialBalance = initialBalance;
     }
 
@@ -46,12 +46,12 @@ public class Client {
         this.id = id;
     }
 
-    public Integer getLimit() {
-        return limit;
+    public Integer getCreditLimit() {
+        return creditLimit;
     }
 
-    public void setLimit(Integer limit) {
-        this.limit = limit;
+    public void setCreditLimit(Integer creditLimit) {
+        this.creditLimit = creditLimit;
     }
 
     public Integer getInitialBalance() {
