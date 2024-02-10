@@ -14,13 +14,19 @@ public class Transaction {
     private String transactionType;
     @Column(length = 10)
     private String description;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
 
-    Transaction(){
+    public Transaction(){
 
     }
 
-    public Transaction(Long id) {
+    public Transaction(Long id, Integer value, String transactionType, String description) {
         this.id = id;
+        this.value = value;
+        this.transactionType = transactionType;
+        this.description = description;
     }
 
     public Long getId() {
