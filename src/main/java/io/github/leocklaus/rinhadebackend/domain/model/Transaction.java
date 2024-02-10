@@ -1,7 +1,10 @@
 package io.github.leocklaus.rinhadebackend.domain.model;
 
 import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +20,8 @@ public class Transaction {
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
+    @CreatedDate
+    private Instant createdAt;
 
     public Transaction(){
 
@@ -67,6 +72,14 @@ public class Transaction {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
     }
 
     @Override
