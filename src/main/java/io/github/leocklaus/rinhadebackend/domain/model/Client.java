@@ -61,4 +61,13 @@ public class Client {
     public void setInitialBalance(Integer initialBalance) {
         this.initialBalance = initialBalance;
     }
+
+    public boolean hasNotEnoughLimit(int transactionAmount, String transactionType){
+        if(transactionType.equals("c")){
+            return false;
+        }
+
+        return this.initialBalance - transactionAmount + this.creditLimit >=0 ? false : true;
+    }
 }
+
